@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicacionController;
 
 Route::get('/', function () {
-    return "Todo va piola";
+    return view('welcome');
 });
 
 Route::get('/dashboard', function () {
@@ -27,8 +27,8 @@ Route::get('/home', [PublicacionController::class, 'index'])->name('home.index')
 route::group(['middleware' => ['auth', 'verified']], function () {
     //ponemos las rutas que queremos que esten auteticadas
     Route::get('/publicaciones', [PublicacionController::class, 'index'])->name('publicaciones.index');
-    Route::get('/productos/crear', [ProductoController::class, 'create'])->name('productos.create');
-    Route::post('/productos/crear', [ProductoController::class, 'store'])->name('productos.store');
+    Route::get('/publicaciones/crear', [PublicacionController::class, 'create'])->name('publicaciones.create');
+    Route::post('/publicaciones/crear', [PublicacionController::class, 'store'])->name('publicaciones.store');
 
     Route::get('/publicaciones/{id}/ver', [PublicacionController::class, 'show'])->name('publicaciones.show')->whereNumber('id');
 

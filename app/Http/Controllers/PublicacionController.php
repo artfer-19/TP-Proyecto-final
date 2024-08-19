@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Publicacion;
+use App\Models\Comentario;
 use Illuminate\Http\Request;
+
 
 class PublicacionController extends Controller
 {
@@ -11,7 +14,7 @@ class PublicacionController extends Controller
      */
     public function index()
     {
-        $publicaciones = Publicacion::paginate(10);
+        $publicaciones = Publicacion::all();
         return view('publicaciones.index')->with('publicaciones', $publicaciones);
     }
 
@@ -29,7 +32,7 @@ class PublicacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "Se recibio el formulario";
     }
 
     /**
